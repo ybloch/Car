@@ -18,7 +18,7 @@ Car::~Car()
 }
 
 
-Car& Car::CompareByYear(Car& firstCar, Car& secondCar)
+const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar) const
 {
 	if (NULL == &firstCar || NULL == &secondCar)
 	{
@@ -30,7 +30,7 @@ Car& Car::CompareByYear(Car& firstCar, Car& secondCar)
 	}
 } 
 
-Car& Car::CompareByEngineVolume(Car& firstCar, Car& secondCar)
+const Car& Car::CompareByEngineVolume(const Car& firstCar, const Car& secondCar) const
 {
 	if (NULL == &firstCar || NULL == &secondCar)
 	{
@@ -44,7 +44,7 @@ Car& Car::CompareByEngineVolume(Car& firstCar, Car& secondCar)
 
 
 
-void Car::print()
+void Car::print() const
 {
 	if (NULL != this)
 	{
@@ -101,7 +101,7 @@ void main(void)
 						cout << "enter car engine volume: ";
 						cin >> userEngineVolume;
 
-						Car car(userMaker, userModel, userColor, userYear, userEngineVolume);
+						const Car car(userMaker, userModel, userColor, userYear, userEngineVolume);
 						
 						car.print();
 						
@@ -121,7 +121,7 @@ void main(void)
 						cout << "enter first car engine volume: ";
 						cin >> userEngineVolume;
 
-						Car car1(userMaker, userModel, userColor, userYear, userEngineVolume);
+						const Car car1(userMaker, userModel, userColor, userYear, userEngineVolume);
 						cout << "your first car details:\n";
 						car1.print();
 						cout << "enter second car maker: ";
@@ -135,11 +135,11 @@ void main(void)
 						cout << "enter second car engine volume: ";
 						cin >> userEngineVolume;
 
-						Car car2(userMaker, userModel, userColor, userYear, userEngineVolume);
+						const Car car2(userMaker, userModel, userColor, userYear, userEngineVolume);
 						cout << "your second car details:\n";
 						car2.print();
 
-						Car& car3 = (ACTION_COMP_BY_ENGINE == userAction) ? car1.CompareByEngineVolume(car1, car2) : car1.CompareByYear(car1, car2);
+						const Car car3 = (ACTION_COMP_BY_ENGINE == userAction) ? car1.CompareByEngineVolume(car1, car2) : car1.CompareByYear(car1, car2);
 						string strToPrint = ACTION_COMP_BY_ENGINE == userAction ? "the car with the grather Engine is:\n" : "the oldest car:\n";
 						cout << strToPrint;
 						car3.print();

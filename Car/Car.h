@@ -36,20 +36,20 @@ public:
 	agruments: 2 cars
 	return: the oldest car
 	*/
-	Car& CompareByYear(Car& firstCar, Car& secondCar);
+	const Car& CompareByYear(const Car& firstCar, const Car& secondCar) const;
 	/*
 	This method Compare between 2 cars by the engine volume
 	agruments: s2 cars
 	return: the bigest
 	*/
-	Car& CompareByEngineVolume(Car& firstCar, Car& secondCar);
+	const Car& CompareByEngineVolume(const Car& firstCar, const Car& secondCar) const;
 	
 	/*
 	This method print the Car details
 	agruments: none
 	return: void
 	*/
-	void print();
+	void print() const;
 
 private:
 	
