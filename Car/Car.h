@@ -32,15 +32,15 @@ public:
 	~Car();
 	
 	/*
-	This method Compare between 2 strings
-	agruments: string to Compare with
-	return: 0 if equal, -1 if there not same size
+	This method Compare between 2 cars by theres years
+	agruments: 2 cars
+	return: the oldest car
 	*/
 	Car* CompareByYear(Car* firstCar, Car* secondCar);
 	/*
-	This method Compare between 2 strings
-	agruments: string to Compare with
-	return: 0 if equal, -1 if there not same size
+	This method Compare between 2 cars by the engine volume
+	agruments: s2 cars
+	return: the bigest
 	*/
 	Car* CompareByEngineVolume(Car* firstCar, Car* secondCar);
 	
