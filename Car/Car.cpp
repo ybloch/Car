@@ -18,27 +18,27 @@ Car::~Car()
 }
 
 
-Car* Car::CompareByYear(Car* firstCar, Car* secondCar)
+Car& Car::CompareByYear(Car& firstCar, Car& secondCar)
 {
-	if (NULL == firstCar || NULL == secondCar)
+	if (NULL == &firstCar || NULL == &secondCar)
 	{
 		throw exception("the given car is NULL pointer!");
 	}
 	else
 	{
-		return (firstCar->m_year >= secondCar->m_year)? firstCar: secondCar;
+		return (firstCar.m_year >= secondCar.m_year)? firstCar: secondCar;
 	}
 } 
 
-Car* Car::CompareByEngineVolume(Car* firstCar, Car* secondCar)
+Car& Car::CompareByEngineVolume(Car& firstCar, Car& secondCar)
 {
-	if (NULL == firstCar || NULL == secondCar)
+	if (NULL == &firstCar || NULL == &secondCar)
 	{
 		throw exception("the given car is NULL pointer!");
 	}
 	else
 	{
-		return (firstCar->m_engineVolume >= secondCar->m_engineVolume) ? firstCar : secondCar;
+		return (firstCar.m_engineVolume >= secondCar.m_engineVolume) ? firstCar : secondCar;
 	}
 }
 
@@ -139,10 +139,10 @@ void main(void)
 						cout << "your second car details:\n";
 						car2.print();
 
-						Car* car3 = (ACTION_COMP_BY_ENGINE == userAction) ? car1.CompareByEngineVolume(&car1, &car2) : car1.CompareByYear(&car1, &car2);
+						Car& car3 = (ACTION_COMP_BY_ENGINE == userAction) ? car1.CompareByEngineVolume(car1, car2) : car1.CompareByYear(car1, car2);
 						string strToPrint = ACTION_COMP_BY_ENGINE == userAction ? "the car with the grather Engine is:\n" : "the oldest car:\n";
 						cout << strToPrint;
-						car3->print();
+						car3.print();
 						break;
 					}
 					

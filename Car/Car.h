@@ -36,13 +36,13 @@ public:
 	agruments: 2 cars
 	return: the oldest car
 	*/
-	Car* CompareByYear(Car* firstCar, Car* secondCar);
+	Car& CompareByYear(Car& firstCar, Car& secondCar);
 	/*
 	This method Compare between 2 cars by the engine volume
 	agruments: s2 cars
 	return: the bigest
 	*/
-	Car* CompareByEngineVolume(Car* firstCar, Car* secondCar);
+	Car& CompareByEngineVolume(Car& firstCar, Car& secondCar);
 	
 	/*
 	This method print the Car details
