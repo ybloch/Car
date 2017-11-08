@@ -22,6 +22,7 @@ const int ACTION_EXIT = 0;
 class  Car
 {
 public:
+	static size_t carID;
 	/*
 	c-tor init Car
 	*/
@@ -61,6 +62,7 @@ private:
 	string m_color;
 	size_t m_year;
 	size_t m_engineVolume;
+	size_t m_id;
 };
 
-
+size_t Car::carID = 10000000;

@@ -6,7 +6,7 @@ Car::Car(){}
 
 Car::Car(string make, string model, string color, size_t year, size_t engineVolume)
 {
-	
+	m_id = ++carID;
 	m_make = !make.empty() ? make : throw exception("invalid maker");
 	m_model = !model.empty() ? model : throw exception("invalid model");
 	m_color = (!color.empty() && color.length() <= COLOR_LENGTH) ? color : throw exception("invalid color");
@@ -14,7 +14,7 @@ Car::Car(string make, string model, string color, size_t year, size_t engineVolu
 	m_engineVolume = (engineVolume >= ENGINE_VOLUME_MIN && engineVolume <= ENGINE_VOLUME_MAX) ? engineVolume : throw exception("invalid engine volume");
 }
 
-Car::Car(const Car& myCar):m_color(myCar.m_color), m_engineVolume(myCar.m_engineVolume), m_make(myCar.m_make), m_model(myCar.m_model)
+Car::Car(const Car& myCar):m_id(myCar.m_id), m_color(myCar.m_color), m_engineVolume(myCar.m_engineVolume), m_make(myCar.m_make), m_model(myCar.m_model)
 {}
 
 const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar)
@@ -48,6 +48,7 @@ void Car::print() const
 	if (NULL != this)
 	{
 		cout << "Car:\n"
+			<< "ID: #" << m_id << endl
 			<< "Maker: " << m_make << endl
 			<< "Model: " << m_model << endl
 			<< "Coler: " << m_color << endl
