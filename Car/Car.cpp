@@ -2,7 +2,8 @@
 
 using namespace std;
 
- 
+Car::Car(){}
+
 Car::Car(string make, string model, string color, size_t year, size_t engineVolume)
 {
 	
@@ -13,10 +14,8 @@ Car::Car(string make, string model, string color, size_t year, size_t engineVolu
 	m_engineVolume = (engineVolume >= ENGINE_VOLUME_MIN && engineVolume <= ENGINE_VOLUME_MAX) ? engineVolume : throw exception("invalid engine volume");
 }
 
-Car::~Car()
-{
-}
-
+Car::Car(const Car& myCar):m_color(myCar.m_color), m_engineVolume(myCar.m_engineVolume), m_make(myCar.m_make), m_model(myCar.m_model)
+{}
 
 const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar) const
 {

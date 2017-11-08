@@ -25,12 +25,15 @@ public:
 	/*
 	c-tor init Car
 	*/
+	Car();
 	Car(string m_make, string m_model, string color, size_t year, size_t engineVolume);
 	/*
 	d-tor delete Car
 	*/
-	~Car();
-	
+	/*
+	copy c-tor init Car
+	*/
+	Car(const Car& myCar);
 	/*
 	This method Compare between 2 cars by theres years
 	agruments: 2 cars
