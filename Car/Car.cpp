@@ -17,7 +17,7 @@ Car::Car(string make, string model, string color, size_t year, size_t engineVolu
 Car::Car(const Car& myCar):m_color(myCar.m_color), m_engineVolume(myCar.m_engineVolume), m_make(myCar.m_make), m_model(myCar.m_model)
 {}
 
-const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar) const
+const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar)
 {
 	if (NULL == &firstCar || NULL == &secondCar)
 	{
@@ -29,7 +29,7 @@ const Car& Car::CompareByYear(const Car& firstCar, const Car& secondCar) const
 	}
 } 
 
-const Car& Car::CompareByEngineVolume(const Car& firstCar, const Car& secondCar) const
+const Car& Car::CompareByEngineVolume(const Car& firstCar, const Car& secondCar)
 {
 	if (NULL == &firstCar || NULL == &secondCar)
 	{
@@ -138,7 +138,7 @@ void main(void)
 						cout << "your second car details:\n";
 						car2.print();
 
-						const Car car3 = (ACTION_COMP_BY_ENGINE == userAction) ? car1.CompareByEngineVolume(car1, car2) : car1.CompareByYear(car1, car2);
+						const Car car3 = (ACTION_COMP_BY_ENGINE == userAction) ? Car::CompareByEngineVolume(car1, car2) : Car::CompareByYear(car1, car2);
 						string strToPrint = ACTION_COMP_BY_ENGINE == userAction ? "the car with the grather Engine is:\n" : "the oldest car:\n";
 						cout << strToPrint;
 						car3.print();
